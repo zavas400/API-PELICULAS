@@ -1,0 +1,13 @@
+#contenido{
+    background-color: rgb(170, 187, 228);
+    padding: 7px;
+    margin: 7px;
+}
+
+body{
+    background-image: url('https://us.123rf.com/450wm/liudmilachernetska/liudmilachernetska2301/liudmilachernetska230137032/197754827-flat-lay-composition-with-clapperboard-and-cinema-tickets-on-orange-background-space-for-text.jpg?ver=6');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+}
