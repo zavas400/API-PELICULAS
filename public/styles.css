@@ -3,7 +3,19 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    height: 100%;
     
+}
+
+#contenido{
+    background-color: rgb(119, 119, 131);
+    width: 50%;
+    height: 100%;
+    margin: 10px;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    box-sizing: border-box;
 }
 
 

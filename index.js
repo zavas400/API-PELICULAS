@@ -13,13 +13,12 @@ const path = require('path');
 app.listen(process.env.port || 3000);
 const mongoUrl ='mongodb+srv://santiagozamora:t1lzKFlksVGZA29p@cluster0.n25ofyg.mongodb.net/todos?retryWrites=true&w=majority';
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '/main.js'));
-    res.sendFile(path.join(__dirname, '/query.js'));
-    res.sendFile(path.join(__dirname, '/styles.css'));
-    res.sendFile(path.join(__dirname, '/index.html'));
+app.get('', (req, res) =>{
+  //res.sendFile(__dirname +'\\publics\\index.html');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-  });
+app.use('/assets', express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(mongoUrl).then(() => {
 

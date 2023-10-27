@@ -1,36 +1,48 @@
 const Pelicula = require('./../models/pelicula');
+const emptyPelicula = new Pelicula ({
+    name: 'vacío',
+    synopsis: 'vacío',
+    genre: 'vacío',
+    duration: 0,
+    director: 'vacío',
+    actors: 'vacío'
+})
 
-class PeliculasController {
+class PeliculaController {
 
-    ver(req, res) {
-        const id = req.params.id;
-        const usuario = ids[id];
-
-        if(usuario) {
-            res.send(usuario);
-        } else {
-            res.sendStatus(404);
-        }  
-    }
-
-    listar(req, res) {
-        Pelicula.find().then(response => {
-          console.log('Respuesta: ', response);
-          res.send(response);
+    listarPeliculas(req, res){
+        console.log("CONTROLLER: Se solicito listar las peliculas");
+        Pelicula.find().then(Peliculas => {
+            console.log(Peliculas);
+            res.json(Peliculas);
         }).catch(e => {
-          res.sendStatus(500);
-          console.log('Error: ', e);
-        });
+            res.send("No se obtuvieron las peliculas.");
+        })
     }
-
-    crear(req, res) {
-        res.send(usuarios[0]);
-    }
-
-
     
+    crearPelicula(req, res){
+        console.log("CONTROLLER: Se solicito crear una pelicula");
+        const newPelicula = new Pelicula({
+            name: req.body.name,
+            synopsis: req.body.synopsis,
+            genre: req.body.genre,
+            duration: req.body.duration,
+            director: req.body.director,
+            actors: req.body.actors.split(',').map(actor => actor.trim())
+        });
+;
+
+        newPelicula.save().then(savedPelicula => {
+            res.send('<script>alert("Se añadió la película bro"); window.location = "/";</script>');
+        }).catch(e => {
+            res.send('tuve un error:' + e);
+        })
+    
+    }
 }
 
+module.exports = new PeliculaController();
 
-module.exports = new PeliculasController();
+
+
 

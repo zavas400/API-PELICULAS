@@ -6,7 +6,7 @@ const peliculaSchema = new Schema({
     genre: {type: String, require: true},
     duration: {type: Number, require: true},
     director: {type: String, require: true},
-    actors: {type: String}    
+    actors: {type: [String]}    
 });
 //exportar la colección
-module.exports =model('pelicula', peliculaSchema);
+module.exports =model('peliculas', peliculaSchema);
